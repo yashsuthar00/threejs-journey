@@ -8,3 +8,9 @@ This section tracks my journey with Three.js, where I’ve built various project
 
 - **🔄 [Transformations and Animations](https://yashsuthar00.github.io/threejs-journey/02-transformations-animations)**  
   *Applied transformations (position, rotation, scaling) and explored keyframe animations along different axes.*
+
+- **💡 [Lighting and Shadows](https://yashsuthar00.github.io/threejs-journey/04-lighting-shadows)**  
+  *Explored different types of lights (ambient, directional, point) and implemented realistic shadows in the scene.*
+
+- **📏 [Deep Understanding](https://yashsuthar00.github.io/threejs-journey/05-deepUnderstanding)**  
+  *Gained deeper knowledge about mesh scaling, rotation, and positioning to control object behavior precisely.*
