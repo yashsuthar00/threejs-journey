@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Materials and Textures</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script type="module">
+    import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js';
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Lighting (necessary for certain materials)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(1, 1, 1).normalize();
+    scene.add(directionalLight);
+
+    // Geometry (cube)
+    const geometry = new THREE.BoxGeometry();
+
+    // Different Materials
+    const basicMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 }); // Red, no light
+    const lambertMaterial = new THREE.MeshLambertMaterial({ color: 0x00ff00 }); // Green, reacts to light
+    const phongMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff, shininess: 100 }); // Blue, shiny
+
+    // Create cubes with different materials
+    const cubeBasic = new THREE.Mesh(geometry, basicMaterial);
+    cubeBasic.position.x = -2;
+
+    const cubeLambert = new THREE.Mesh(geometry, lambertMaterial);
+
+    const cubePhong = new THREE.Mesh(geometry, phongMaterial);
+    cubePhong.position.x = 2;
+
+    // Add cubes to the scene
+    scene.add(cubeBasic, cubeLambert, cubePhong);
+
+    camera.position.z = 5;
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Rotate cubes
+      cubeBasic.rotation.y += 0.01;
+      cubeLambert.rotation.y += 0.01;
+      cubePhong.rotation.y += 0.01;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  </script>
+</body>
+</html>

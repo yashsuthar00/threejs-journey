@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transformations and Animations</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script type="module">
+        import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js';
+
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Cube setup
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.z = 3;
+
+        // Animation loop
+        function animate() {
+        requestAnimationFrame(animate);
+
+        // Transformations
+        cube.rotation.x += 0.01;  // Rotate cube on x-axis
+        cube.rotation.y += 0.01;  // Rotate cube on y-axis
+        cube.position.x = Math.sin(Date.now() * 0.001) * 1;  // Move side-to-side
+
+        renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
