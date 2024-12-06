@@ -1,0 +1,8 @@
+Name:
+Carton Box Cardboard Texture (Paper 0025)
+
+Description:
+It is a kind of cardboard texture which can be found on carton boxes. Wrinkled or folded marks can be found on the surface.
+
+Author:
+https://www.texturecan.com

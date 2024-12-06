@@ -1,0 +1,19 @@
+{
+  "name": "08-geometry",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "parcel build index.html",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.2",
+    "vite": "^6.0.1"
+  },
+  "dependencies": {
+    "lil-gui": "^0.20.0",
+    "three": "^0.171.0"
+  }
+}
