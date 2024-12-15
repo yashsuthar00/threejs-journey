@@ -37,7 +37,7 @@ rgbeLoader.load('https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/qwantani_p
 
 // 3d model loader
 const loader = new GLTFLoader();
-loader.load('./jaguar.glb', function (gltf) {
+loader.load('./models/jaguar.glb', function (gltf) {
     gltf.scene.scale.set(30, 30, 30);
     gltf.scene.position.set(-148, -358, 792);
     scene.add(gltf.scene);

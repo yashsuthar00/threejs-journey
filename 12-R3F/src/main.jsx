@@ -5,7 +5,7 @@ import { Leva } from "leva";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Leva />
+    <Leva hidden={window.innerWidth < 768} />
     <App />
   </StrictMode>,
 );

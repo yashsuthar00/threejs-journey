@@ -6,9 +6,9 @@ const camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.inne
 
 // const geometry = new THREE.SphereGeometry( 1, 10, 10 ); 
 const geometry = new THREE.CylinderGeometry( 2, 2, 3, 10, 2, true ); 
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00, side: THREE.DoubleSide} ); // to render geometry on double side
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00, side: THREE.DoubleSide, wireframe : true} ); // to render geometry on double side
+const cylender = new THREE.Mesh( geometry, material );
+scene.add( cylender );
 
 camera.position.z = 5;
 
