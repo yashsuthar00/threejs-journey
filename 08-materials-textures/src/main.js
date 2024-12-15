@@ -60,12 +60,13 @@ const pointLightHelper = new THREE.PointLightHelper(pointLight, 5);
 scene.add(pointLightHelper);
 
 const gui = new lil.GUI();
+
 const materialFolder = gui.addFolder('Material');
 materialFolder.add(material, 'roughness', 0, 1, 0.01);
 materialFolder.add(material, 'metalness', 0, 1, 0.01);
 materialFolder.add(material, 'displacementScale', 0, 1, 0.01);
 // materialFolder.add(material, 'color').name('Color');
-materialFolder.open();
+
 
 const cubeFolder = gui.addFolder('Mesh');
 cubeFolder.add(cube.scale, 'x', 0.1, 5, 0.1).name('Scale X');
@@ -75,7 +76,15 @@ cubeFolder.addColor(material, 'color').name('Color');
 cubeFolder.add(cube.position, 'x', 0.1, 5, 0.1).name('Position X');
 cubeFolder.add(cube.position, 'y', 0.1, 5, 0.1).name('Position Y');
 cubeFolder.add(cube.position, 'z', 0.1, 5, 0.1).name('Position Z');
-cubeFolder.open();
+// cubeFolder.open();
+
+if (window.innerWidth < 768) {
+  materialFolder.close();
+  cubeFolder.close();
+} else {
+  materialFolder.open();
+  cubeFolder.open();
+}
 
 //  responsive
 window.addEventListener('resize', onWindowResize, false);
@@ -84,6 +93,14 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+  if (window.innerWidth < 768) {
+    gui.domElement.style.width = '200px';
+    gui.domElement.style.height = '300px';
+  } else {
+    gui.domElement.style.width = '400px';
+    gui.domElement.style.height = '600px';
+  }
 }
 
 const controls = new OrbitControls( camera, renderer.domElement ); // declare controls

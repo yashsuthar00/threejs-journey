@@ -93,7 +93,6 @@ const lightFolder = gui.addFolder('Lights');
 // Ambient light settings
 const ambientFolder = lightFolder.addFolder('Ambient Light');
 ambientFolder.add(ambient, 'intensity', 0, 1, 0.01);
-ambientFolder.open();
 
 // Directional light settings
 const directionalFolder = lightFolder.addFolder('Directional Light');
@@ -101,7 +100,6 @@ directionalFolder.add(directional, 'intensity', 0, 1, 0.01);
 directionalFolder.add(directional.position, 'x', -10, 10, 0.1).name('Position X');
 directionalFolder.add(directional.position, 'y', -10, 10, 0.1).name('Position Y');
 directionalFolder.add(directional.position, 'z', -10, 10, 0.1).name('Position Z');
-directionalFolder.open();
 
 // Point light settings
 const pointFolder = lightFolder.addFolder('Point Light');
@@ -109,9 +107,21 @@ pointFolder.add(point, 'intensity', 0, 1, 0.01);
 pointFolder.add(point.position, 'x', -10, 10, 0.1).name('Position X');
 pointFolder.add(point.position, 'y', -10, 10, 0.1).name('Position Y');
 pointFolder.add(point.position, 'z', -10, 10, 0.1).name('Position Z');
-pointFolder.open();
 
-lightFolder.open();
+
+
+
+if (window.innerWidth < 768) {
+  lightFolder.close();
+  directionalFolder.close();
+  ambientFolder.close();
+  pointFolder.close();
+} else {
+  lightFolder.open();
+  directionalFolder.open();
+  ambientFolder.open();
+  pointFolder.open();
+}
 
 //  responsive
 window.addEventListener('resize', onWindowResize, false);
