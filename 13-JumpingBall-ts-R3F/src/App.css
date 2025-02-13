@@ -1,0 +1,17 @@
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+div#root {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 768px) {
+    div#root {
+        flex-direction: column;
+    }
+}
